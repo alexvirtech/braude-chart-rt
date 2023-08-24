@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTW App Template</title>
+    <!-- AngularJS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <!-- chartjs component, see doumentation in https://www.chartjs.org/docs/latest/ -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.3/dist/chart.umd.min.js"></script>
+
+    <!-- custom script -->
+    <script src="inc/app.js"></script>
+
+    <!--
+        The tailwind CDN is designed for development purposes only, and is not the best choice for production.
+        Read more here: https://tailwindcss.com/docs/installation 
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- example for dark theme styling when using tailwind cdn -->
+    <style>
+       .dark .dark\:text-white {
+            color: #fff;
+        }        
+        .dark .dark\:bg-gray-800 {
+            background-color: #181819;
+        }
+        /*add your custom css rules here*/
+    </style>
+</head>
+
+<body class="dark:text-white" ng-app="chartApp" ng-controller="chartCtrl">
+    <div class="max-w-[560px] mt-4 mx-auto pb-10">
+        <div class="text-4xl py-6 text-center">Real time chart</div>
+        <div class="flex justify-center gap-4 font-bold pb-2">
+            <div class="py-1">Symbol</div>
+            <select ng-change="changeSymbol()" class="border border-gray-300 rounded-md w-[100px] px-2 py-1 dark:bg-gray-800 dark:text-white" ng-model="selectedSymbol">
+                <option ng-repeat="symbol in symbols" ng-bind="symbol" ng-value="symbol"></option>
+            </select>            
+        </div>
+        <div class="w-[100%] h-[300px]"><canvas id="myChart"></canvas></div>
+    </div>
+
+    <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
+    <script>
+        // custom config for the MTW app 
+        const mtwAppConfig = {
+            border: true // app border in the MTW page                    
+        }
+    </script>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
+</body>
+
+</html>
