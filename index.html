@@ -27,11 +27,14 @@
         .dark .dark\:bg-gray-800 {
             background-color: #181819;
         }
+        .light .light\:text-black {
+            color: #000;
+        }
         /*add your custom css rules here*/
     </style>
 </head>
 
-<body class="dark:text-white" ng-app="chartApp" ng-controller="chartCtrl">
+<body class="dark:text-white light:text-black" ng-app="chartApp" ng-controller="chartCtrl">
     <div class="max-w-[560px] mt-4 mx-auto pb-10">
         <div class="text-4xl py-6 text-center">Real time chart</div>
         <div class="flex justify-center gap-4 font-bold pb-2">
