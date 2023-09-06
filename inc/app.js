@@ -34,7 +34,7 @@ angular.module('chartApp', [])
             $scope.setChartData($scope.selectedSymbol)
         }
 
-        const wsURL = 'wss://tickers.herokuapp.com'
+        const wsURL = 'wss://mtickers.mtw-testnet.com' 
         const socket = new WebSocket(wsURL)
         const listURL = "https://api.mtw-testnet.com/tickers/all"
         $scope.selectedSymbol = 'BTC'
