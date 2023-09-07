@@ -36,7 +36,7 @@ angular.module('chartApp', [])
 
         const wsURL = 'wss://mtickers.mtw-testnet.com' 
         const socket = new WebSocket(wsURL)
-        const listURL = "https://api.mtw-testnet.com/tickers/all"
+        const listURL = "https://api.mtw-testnet.com/assets/symbols" //"https://mtickers.mtw-testnet.com/symbols"
         $scope.selectedSymbol = 'BTC'
         $scope.symbols = []
 
@@ -70,7 +70,7 @@ angular.module('chartApp', [])
             fetch(listURL)
                 .then(response => response.json())
                 .then(data => {
-                    $scope.symbols = Object.keys(data)
+                    $scope.symbols = [...data]
                     $scope.safeApply()
                 })
             const ctx = document.getElementById('myChart').getContext('2d')
